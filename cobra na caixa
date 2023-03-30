@@ -1,0 +1,18 @@
+Esse é um trecho de código do jogo chamado "Cobra na Caixa". Ele usa a estrutura de seleção "switch" e cada case representa uma opção de jogo. O case 2 é a opção do jogo em que dois jogadores se revezam escolhendo entre cinco caixas para encontrar o botão que abre o cofre antes de encontrar a caixa com uma cobra venenosa.
+
+Aqui está uma explicação do jogo
+
+int button_box = rand() % NUM_BOXES;: Escolhe aleatoriamente um número entre 0 e 4 para determinar qual caixa contém o botão. O valor resultante é armazenado na variável button_box.
+int snake_box = rand() % NUM_BOXES;: Escolhe aleatoriamente um número entre 0 e 4 para determinar qual caixa contém a cobra. O valor resultante é armazenado na variável snake_box.
+while (snake_box == button_box) {...}: Este loop garante que a caixa com a cobra e a caixa com o botão são diferentes. Se as duas caixas forem iguais, o loop irá escolher uma nova caixa aleatória para a cobra até que as duas sejam diferentes.
+int chosen_box;: Cria uma variável para armazenar a escolha da caixa do jogador.
+int turn = rand() % 2;: Escolhe aleatoriamente qual jogador começa. Se rand() % 2 resultar em 0, o primeiro jogador começa, senão, o segundo jogador começa.
+char name1[20], name2[20];: Cria duas variáveis de caracteres para armazenar os nomes dos jogadores.
+printf("Bem-vindo ao jogo da cobra na caixa!\n"); ...: Imprime uma mensagem de boas-vindas e solicita aos jogadores que digitem seus nomes.
+while (1) {...}: Este é o loop principal do jogo que continuará até que um dos jogadores encontre o botão ou a cobra.
+if (turn == 0) {...}: Se for a vez do primeiro jogador, solicita que ele escolha uma caixa e armazena sua escolha na variável chosen_box. Senão, solicita que o segundo jogador escolha.
+if (chosen_box < 1 || chosen_box > 5) {...}: Se a escolha do jogador estiver fora do intervalo de 1 a 5, imprime uma mensagem pedindo que ele escolha um número válido e continua o loop.
+chosen_box--;: Subtrai 1 da escolha do jogador para ajustar o índice das caixas que começa em 0.
+if (chosen_box == button_box) {...}: Se a escolha do jogador for igual ao índice da caixa com o botão, o jogador encontrou o botão e o jogo termina com uma mensagem de vitória.
+else if (chosen_box == snake_box) {...}: Se a escolha do jogador for igual ao índice da caixa com a cobra, o jogador encontrou a cobra e o jogo termina com uma mensagem de derrota.
+else {...}: Se a caixa escolhida pelo jogador estiver vazia, o turno passa para o outro jogador e o loop continua até que um jogador encontre
