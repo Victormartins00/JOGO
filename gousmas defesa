@@ -1,0 +1,16 @@
+O código é um jogo simples que envolve duas instâncias de um jogador que cada um controla dois criaturas fictícias chamadas "Gousma". O jogo começa com um jogador aleatório escolhido e continua enquanto ambos os jogadores tiverem pelo menos uma Gousma ativa. Cada Gousma tem uma propriedade de "fury" que pode ser aumentada ou diminuída durante o jogo. O objetivo do jogo é destruir todas as Gousmas do oponente.
+
+O código começa com a definição de duas constantes: MAX_FURY, que é o valor máximo de fury que uma Gousma pode ter, e MAX_GOUSMAS, que é o número máximo de Gousmas que cada jogador pode controlar.
+
+A seguir, são definidas duas estruturas: Gousma e Player. A primeira estrutura é usada para definir uma Gousma e possui apenas um membro, "fury". A segunda estrutura é usada para definir um jogador e possui dois membros: um array de duas Gousmas e um índice de Gousma ativa (que pode ser 0 ou 1).
+
+O código também define várias funções, incluindo:
+
+print_game_status(): uma função que imprime o status atual do jogo, incluindo as furys atuais de cada Gousma de cada jogador.
+choose_starting_player(): uma função que retorna um valor aleatório (1 ou 2) para determinar qual jogador começa o jogo.
+check_active_gousmas(): uma função que verifica se um jogador tem alguma Gousma ativa restante e retorna 1 se sim ou 0 se não.
+check_max_fury(): uma função que verifica se a fury de uma Gousma atingiu o valor máximo permitido e, se sim, redefine a fury para 0 e imprime uma mensagem de desintegração.
+select_target_gousma(): uma função que permite ao jogador escolher uma Gousma para atacar.
+attack(): uma função que realiza um ataque de uma Gousma ativa em uma Gousma selecionada do jogador adversário, adicionando a fury da Gousma ativa à fury da Gousma selecionada e verificando se a fury da Gousma selecionada atingiu o valor máximo permitido (e, se sim, redefine sua fury para 0).
+divide(): uma função que realiza uma divisão de uma Gousma em duas se a fury da primeira for maior que 1 e a segunda Gousma do jogador estiver vazia.
+Por fim, o código principal começa definindo duas variáveis de jogador (player1 e player2) e o jogador que começa o jogo. O jogo continua em um loop while que executa a função check_active_gousmas() para ambos os jogadores e, se ambos tiverem pelo menos uma Gousma ativa restante, imprime o status atual do jogo, permite ao jogador escolher uma ação (atacar ou dividir), executa a ação apropriada e, em seguida, alterna a Gousma ativa e o jogador ativo. Quando o loop while termina, o jogo é concluído e o jogador com a última Gousma ativa é o vencedor.
