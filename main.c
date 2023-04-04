@@ -138,7 +138,7 @@ printf("Resposta incorreta. A resposta correta e a) Nilo.\n");
                 }
                 chosen_box--;  // índice começa em 0
                 if (chosen_box == button_box) {
-                    printf("Parabens,você encontrou o botao e abriu o cofre! Voce venceu o jogo!\n");
+                    printf("Parabens,voce encontrou o botao e abriu o cofre! Voce venceu o jogo!\n");
 break; // sai do loop do jogo
 } else if (chosen_box == snake_box) {
 printf("Infelizmente, voce escolheu a caixa com a cobra venenosa e foi picado!\n");
