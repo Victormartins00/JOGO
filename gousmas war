@@ -5,30 +5,30 @@
 #define MAX_FURY 5
 #define MAX_GOUSMAS 2
 
-
+// Struct for a Gousma creature
 typedef struct Gousma {
     int fury;
 } Gousma;
 
-
+// Struct for a player
 typedef struct Player {
     Gousma gousmas[MAX_GOUSMAS];
     int active_gousma;
 } Player;
 
-
+// Function to print the status of the game
 void print_game_status(Player player1, Player player2) {
-    printf("Jogador 1: Gousma 1 (%d/%d), Gousma 2 (%d/%d)\n", Jogador1.gousmas[0].furia, FURIA_MAXIMA, Jogador1.gousmas[1].furia, FURIA_MAXIMA);
-    printf("Jogador 2: Gousma 1 (%d/%d), Gousma 2 (%d/%d)\n", Jogador2.gousmas[0].furia, FURUA_MAXIMA, Jogador2.gousmas[1].furia, FURIA_MAXIMA);
+    printf("Player 1: Gousma 1 (%d/%d), Gousma 2 (%d/%d)\n", player1.gousmas[0].fury, MAX_FURY, player1.gousmas[1].fury, MAX_FURY);
+    printf("Player 2: Gousma 1 (%d/%d), Gousma 2 (%d/%d)\n", player2.gousmas[0].fury, MAX_FURY, player2.gousmas[1].fury, MAX_FURY);
 }
 
-
+// Function to choose a random player to start the game
 int choose_starting_player() {
     srand(time(NULL));
     return rand() % 2 + 1;
 }
 
-
+// Function to check if a player has any active Gousmas left
 int check_active_gousmas(Player player) {
     for (int i = 0; i < MAX_GOUSMAS; i++) {
         if (player.gousmas[i].fury > 0) {
@@ -38,7 +38,7 @@ int check_active_gousmas(Player player) {
     return 0;
 }
 
-
+// Function to check if a Gousma has reached the maximum fury level and disintegrate it if so
 void check_max_fury(Gousma* gousma) {
     if (gousma->fury >= MAX_FURY) {
         printf("Gousma with fury %d foi desintegrado!\n", gousma->fury);
@@ -46,7 +46,7 @@ void check_max_fury(Gousma* gousma) {
     }
 }
 
-
+// Function to select a target Gousma for an attack
 int select_target_gousma(Player player) {
     int target_gousma;
     do {
@@ -56,7 +56,7 @@ int select_target_gousma(Player player) {
     return target_gousma - 1;
 }
 
-
+// Function to perform an attack
 void attack(Player* attacker, Player* defender) {
     int target_gousma = select_target_gousma(*defender);
     defender->gousmas[target_gousma].fury += attacker->gousmas[attacker->active_gousma].fury;
@@ -67,7 +67,7 @@ void attack(Player* attacker, Player* defender) {
     }
 }
 
-
+// Function to perform a division
 void divide(Player* player) {
     if (player->gousmas[1].fury == 0 && player->gousmas[0].fury > 1) {
         player->gousmas[1].fury = player->gousmas[0].fury / 2;
@@ -79,35 +79,35 @@ printf("Division failed!\n");
 }
 
 int main() {
-
+// Initialize players and starting player
 Player player1 = {{MAX_FURY, MAX_FURY}, 0};
 Player player2 = {{MAX_FURY, MAX_FURY}, 0};
 int current_player = choose_starting_player();
 printf("Player %d starts the game!\n", current_player);
 
 
-
+// Loop for game turns
 while (check_active_gousmas(player1) && check_active_gousmas(player2)) {
-    
+    // Print game status
     printf("\n-- Turn of Player %d --\n", current_player);
     printf("Current Gousma: %d\n", current_player == 1 ? player1.active_gousma + 1 : player2.active_gousma + 1);
     print_game_status(player1, player2);
 
-    
+    // Player chooses action
     int action;
     do {
         printf("escolha uma ação (1 - attack, 2 - divide): ");
         scanf("%d", &action);
     } while (action < 1 || action > 2);
 
-    
+    // Perform action
     if (action == 1) {
         attack(current_player == 1 ? &player1 : &player2, current_player == 1 ? &player2 : &player1);
     } else {
         divide(current_player == 1 ? &player1 : &player2);
     }
 
-    
+    // Switch active Gousma and player
     if (current_player == 1) {
         player1.active_gousma = (player1.active_gousma + 1) % MAX_GOUSMAS;
         current_player = 2;
@@ -126,4 +126,3 @@ if (!check_active_gousmas(player1)) {
 
 return 0;
 }
-
