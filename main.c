@@ -152,6 +152,7 @@ break;
 }
 
 case 3:
+    printf("bem vindo ao goumas war ! \n");            
    {
    
       
