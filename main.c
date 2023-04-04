@@ -167,8 +167,8 @@ typedef struct Player {
 
 // Function to print the status of the game
 void print_game_status(Player player1, Player player2) {
-    printf("Player 1: Gousma 1 (%d/%d), Gousma 2 (%d/%d)\n", player1.gousmas[0].fury, MAX_FURY, player1.gousmas[1].fury, MAX_FURY);
-    printf("Player 2: Gousma 1 (%d/%d), Gousma 2 (%d/%d)\n", player2.gousmas[0].fury, MAX_FURY, player2.gousmas[1].fury, MAX_FURY);
+    printf("player 1: Gousma 1 (%d/%d), Gousma 2 (%d/%d)\n", player1.gousmas[0].fury, MAX_FURY, player1.gousmas[1].fury, MAX_FURY);
+    printf("player 2: Gousma 1 (%d/%d), Gousma 2 (%d/%d)\n", player2.gousmas[0].fury, MAX_FURY, player2.gousmas[1].fury, MAX_FURY);
 }
 
 // Function to choose a random player to start the game
@@ -190,7 +190,7 @@ int check_active_gousmas(Player player) {
 // Function to check if a Gousma has reached the maximum fury level and disintegrate it if so
 void check_max_fury(Gousma* gousma) {
     if (gousma->fury >= MAX_FURY) {
-        printf("Gousma with fury %d foi desintegrado!\n", gousma->fury);
+        printf("Gousma com furia %d foi desintegrado!\n", gousma->fury);
         gousma->fury = 0;
     }
 }
@@ -199,7 +199,7 @@ void check_max_fury(Gousma* gousma) {
 int select_target_gousma(Player player) {
     int target_gousma;
     do {
-        printf("Select target Gousma (1 or 2): ");
+        printf("Selecione o alvo Gousma (1 or 2): ");
         scanf("%d", &target_gousma);
     } while (target_gousma < 1 || target_gousma > MAX_GOUSMAS || target_gousma == player.active_gousma);
     return target_gousma - 1;
@@ -221,7 +221,7 @@ void divide(Player* player) {
     if (player->gousmas[1].fury == 0 && player->gousmas[0].fury > 1) {
         player->gousmas[1].fury = player->gousmas[0].fury / 2;
         player->gousmas[0].fury /= 2;
-printf("Gousma 1 divided into two with fury levels %d and %d!\n", player->gousmas[0].fury, player->gousmas[1].fury);
+printf("Gousma 1 se dividiu em duas com furia %d and %d!\n", player->gousmas[0].fury, player->gousmas[1].fury);
 }
 }
 
@@ -249,13 +249,13 @@ while (check_active_gousmas(player1) && check_active_gousmas(player2)) {
     // Choose the action to perform
     int action;
     do {
-        printf("Choose an action (1 for attack, 2 for division): ");
+        printf("escolha uma acao (1 for attack, 2 for division): ");
         scanf("%d", &action);
     } while (action < 1 || action > 2);
 
     // Perform the chosen action
     if (action == 1) {
-        printf("Select attacking Gousma (1 or 2): ");
+        printf("Selecione uma gousma atacante (1 or 2): ");
         scanf("%d", &player1.active_gousma);
         attack(&player1, &player2);
     } else {
@@ -268,9 +268,9 @@ while (check_active_gousmas(player1) && check_active_gousmas(player2)) {
 
 // Declare the winner
 if (check_active_gousmas(player1)) {
-    printf("Player 1 wins!\n");
+    printf("Player 1 venceu!\n");
 } else {
-    printf("Player 2 wins!\n");
+    printf("Player 2 venceu!\n");
 }
 }
 
