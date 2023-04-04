@@ -30,10 +30,10 @@ int main()
                     char play_again = 's';
 
                     do {
-                        printf("Pergunta 1: Qual é a capital do Brasil?\n");
+                        printf("Pergunta 1: Qual e a capital do Brasil?\n");
                         printf("a) Rio de Janeiro\n");
                         printf("b) Sao Paulo\n");
-                        printf("c) Brasília\n");
+                        printf("c) Brasilia\n");
                         printf("d) Salvador\n");
                         getchar(); // para consumir o caractere '\n' deixado pelo scanf
                         resposta = getchar();
@@ -41,24 +41,24 @@ int main()
                             printf("Resposta correta!\n");
                             score++;
                         } else {
-                            printf("Resposta incorreta. A resposta correta c) Brasília\n");
+                            printf("Resposta incorreta. A resposta correta c) Brasilia\n");
                         }
 
-                        printf("Pergunta 2: Qual é o maior planeta do sistema solar?\n");
+                        printf("Pergunta 2: Qual e o maior planeta do sistema solar?\n");
                         printf("a) Terra\n");
                         printf("b) Urano\n");
-                        printf("c) Júpiter\n");
-                        printf("d) Vênus\n");
+                        printf("c) Jupiter\n");
+                        printf("d) Venus\n");
                         getchar();
                         resposta = getchar();
                         if (resposta == 'c') {
                             printf("Resposta correta!\n");
                             score++;
                         } else {
-                            printf("Resposta incorreta. A resposta correta é c) Júpiter.\n");
+                            printf("Resposta incorreta. A resposta correta e c) Jupiter.\n");
                         }
 
-                        printf("Pergunta 3: Qual é o nome do primeiro homem a pisar na lua?\n");
+                        printf("Pergunta 3: Qual e o nome do primeiro homem a pisar na lua?\n");
                         printf("a) Neil Armstrong\n");
                         printf("b) Buzz Aldrin\n");
                         printf("c) Yuri Gagarin\n");
@@ -69,13 +69,13 @@ int main()
                             printf("Resposta correta!\n");
                             score++;
                         } else {
-                            printf("Resposta incorreta. A resposta correta é a) Neil Armstrong.\n");
+                            printf("Resposta incorreta. A resposta correta e a) Neil Armstrong.\n");
                         }
 
-                        printf("Pergunta 4: Qual é o nome do maior rio do mundo?\n");
+                        printf("Pergunta 4: Qual e o nome do maior rio do mundo?\n");
                         printf (":a) Nilo\n");
 printf("b) Amazonas\n");
-printf("c) Yangtzé\n");
+printf("c) Yangtze\n");
 printf("d) Mississipi\n");
 getchar();
 resposta = getchar();
@@ -83,21 +83,21 @@ if (resposta == 'a') {
 printf("Resposta correta!\n");
 score++;
 } else {
-printf("Resposta incorreta. A resposta correta é a) Nilo.\n");
+printf("Resposta incorreta. A resposta correta e a) Nilo.\n");
 }
 
-                    printf("Pergunta 5: Qual é o metal mais caro do mundo?\n");
+                    printf("Pergunta 5: Qual e o metal mais caro do mundo?\n");
                     printf("a) Platina\n");
                     printf("b) Ouro\n");
                     printf("c) Prata\n");
-                    printf("d) Ródio\n");
+                    printf("d) Rodio\n");
                     getchar();
                     resposta = getchar();
                     if (resposta == 'd') {
                         printf("Resposta correta!\n");
                         score++;
                     } else {
-                        printf("Resposta incorreta. A resposta correta é d) Ródio.\n");
+                        printf("Resposta incorreta. A resposta correta e d) Rodio.\n");
                     }
 
                     printf("\nFim do jogo! Sua pontuacao foi %d.\n", score);
@@ -123,28 +123,28 @@ printf("Resposta incorreta. A resposta correta é a) Nilo.\n");
             scanf("%s", name1);
             printf("Jogador 2, por favor digite seu primeiro nome: ");
             scanf("%s", name2);
-            printf("%s e %s, um de vocês irá abrir a primeira caixa.\n", name1, name2);
+            printf("%s e %s, um de voces ira abrir a primeira caixa.\n", name1, name2);
             printf("Boa sorte!\n\n");
             while (1) {                           // loop do jogo
                 if (turn == 0) {
-                    printf("%s, é sua vez de escolher uma caixa (1-5): ", name1);
+                    printf("%s, e sua vez de escolher uma caixa (1-5): ", name1);
                 } else {
-                    printf("%s, é sua vez de escolher uma caixa (1-5): ", name2);
+                    printf("%s, e sua vez de escolher uma caixa (1-5): ", name2);
                 }
                 scanf("%d", &chosen_box);
                 if (chosen_box < 1 || chosen_box > 5) {
-                    printf("Por favor, escolha um número entre 1 e 5.\n");
+                    printf("Por favor, escolha um numero entre 1 e 5.\n");
                     continue;
                 }
                 chosen_box--;  // índice começa em 0
                 if (chosen_box == button_box) {
-                    printf("Parabéns,você encontrou o botão e abriu o cofre! Você venceu o jogo!\n");
+                    printf("Parabens,você encontrou o botao e abriu o cofre! Voce venceu o jogo!\n");
 break; // sai do loop do jogo
 } else if (chosen_box == snake_box) {
-printf("Infelizmente, você escolheu a caixa com a cobra venenosa e foi picado!\n");
+printf("Infelizmente, voce escolheu a caixa com a cobra venenosa e foi picado!\n");
 break; // sai do loop do jogo
 } else {
-printf("Esta caixa está vazia.\n");
+printf("Esta caixa esta vazia.\n");
 turn = !turn; // passa a vez para o outro jogador
 }
 }
