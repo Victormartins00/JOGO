@@ -18,8 +18,8 @@ typedef struct Player {
 
 
 void print_game_status(Player player1, Player player2) {
-    printf("Player 1: Gousma 1 (%d/%d), Gousma 2 (%d/%d)\n", player1.gousmas[0].fury, MAX_FURY, player1.gousmas[1].fury, MAX_FURY);
-    printf("Player 2: Gousma 1 (%d/%d), Gousma 2 (%d/%d)\n", player2.gousmas[0].fury, MAX_FURY, player2.gousmas[1].fury, MAX_FURY);
+    printf("Jogador 1: Gousma 1 (%d/%d), Gousma 2 (%d/%d)\n", Jogador1.gousmas[0].furia, FURIA_MAXIMA, Jogador1.gousmas[1].furia, FURIA_MAXIMA);
+    printf("Jogador 2: Gousma 1 (%d/%d), Gousma 2 (%d/%d)\n", Jogador2.gousmas[0].furia, FURUA_MAXIMA, Jogador2.gousmas[1].furia, FURIA_MAXIMA);
 }
 
 
